@@ -12,28 +12,36 @@ export default function Footer() {
       </div>
       <div className={styles.item}>
         <h4 className={styles.title}>Nous Contactez </h4>
-        <p className={styles.text}>
+        <div className={styles.text}>
           +243972479631
           <br /> yengogracius@gmail.com
           <br />
           <div className={styles.sociaux}>
-            <div className={styles.facebook}>facebook</div>
-            <div className={styles.linkedin}>linkedin</div>
-            <div className={styles.instangram}>instangram</div>
+            <span className={styles.facebook}>facebook</span>
+            <span className={styles.linkedin}>linkedin</span>
+            <span className={styles.instangram}>instangram</span>
           </div>
+        </div>
+      </div>
+    
+      <div className={styles.item}>
+        <h4 className={styles.title}>Soutien </h4>
+        <p className={styles.text}>
+           Devenir Partenaire
+          <br /> Nos Partenaires
+    
         </p>
       </div>
+      
+      
       <div className={styles.item}>
-        <h4 className={styles.title}> Faire une suggestion</h4>
+        <h4 className={styles.titleSuggestion}> Faire une suggestion</h4>
         <p className={styles.description}>
           Avez-vous trouvé des erreurs dans l’interface ou les textes? Ou
           savez-vous comment améliorer l’interface utilisateur Tanga Na Pete?
           Nhésitez pas à envoyer des suggestions. Cest très important pour nous!
         </p>
-        <button className={styles.buttonComment}>
-          {" "}
-          Ajouter de commentaire
-        </button>
+        <button className={styles.buttonComment}>Ajouter de commentaire</button>
       </div>
     </div>
   );

@@ -1,10 +1,11 @@
 :root {
     --bg-black-900: #fdf9ff;
-    --bg-black-100: #fdf9ff;
+    --text-black:#fff;
     --bg-black-50: #e8dfec;
-
-    --text-black-900: #302e4d;
-    --text-back-700: #504e70;
+  
+   
+    --text-black-900:#303030;
+    --text-black-700: #504e70;
     --skin-color: #EC1839;
   }
   
@@ -17,3 +18,7 @@
     font-size: 16px;
     font-family: "poppins", sans-serif;
   }
+  ::-webkit-input-placeholder{
+    color: #d9d9d9;
+    font-size: 15px;
+}

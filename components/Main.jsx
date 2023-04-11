@@ -4,6 +4,7 @@ import { BiCaretRight } from "react-icons/bi";
 import { BiCaretLeft } from "react-icons/bi";
 import styles from "../styles/Main.module.css";
 
+
 export default function Featured() {
   const [index, setIndex] = useState(0);
   const images = [
@@ -11,13 +12,11 @@ export default function Featured() {
     "/img/femme-jeune.png",
     "/img/femme-etudiante.png",
   ];
-  const description=[
-"Preparer vos épreuves (examen, interrogation, travaux pratiques)avec facilité",
-"uuuuuuuuuuuuuuuu",
-"ccccccccccccccc"
-
-  ]
-  
+  const description = [
+    "Preparer vos épreuves (examen, interrogation, travaux pratiques)avec facilité",
+    "uuuuuuuuuuuuuuuu",
+    "ccccccccccccccc",
+  ];
 
   const handleArrow = (direction) => {
     if (direction === "l") {
@@ -49,11 +48,22 @@ export default function Featured() {
             />
           </div>
         ))}
-        <div className={styles.containerDescription}>
-          <p className={styles.description}>
-            Preparer vos épreuves (examen, interrogation, travaux pratiques)
-            avec facilité
-          </p>
+        <div className={styles.marketingContainer}>
+          
+            <p className={styles.description}>
+              Preparer vos épreuves (examen, interrogation, travaux pratiques)
+              avec facilité
+            </p>
+            <div className={styles.searchContainer}>
+            <input type="text" placeholder="Entrez le nom du cours" className={styles.input} />
+            <button className={styles.search}>
+            <span className={styles.searchIcon}> icone recherche</span>
+              <span className={styles.searchText}> Recherche</span>
+            </button>
+              
+            
+            </div>
+          
         </div>
       </div>
       <BiCaretRight

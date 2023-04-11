@@ -1,5 +1,5 @@
 .container{
-    height: calc(115vh - 100px);
+    height: calc(100vh - 115px);
     background-color:var(--skin-color);
     position: relative;
     overflow: hidden;
@@ -22,15 +22,59 @@
     
 }
 
-.containerDescription{
+.marketingContainer{
     position: absolute;
+    
     top: 22%;
     left: 6%;
+    
     color: white;
     font-size: 40px;
-    width: 10%;
+    width: 11%;
     
 }
+.searchContainer{
+    position: relative;
+}
+
+.input{
+    
+    height: 40px;
+    width: 70%;
+    margin-top: 50px;
+    border: none;
+    outline: none;
+    background: #FFFFFF;
+border-radius: 15px;
+padding-left: 10px;
+
+
+}
+
+.search{
+    background-color: var(--skin-color);
+    position: absolute;
+    
+    
+    top: 55px;
+    right: 100px;
+    height: 30px;
+    
+    width: 25%;
+    border: none;
+
+    cursor: pointer;
+   
+
+   
+   
+}
+.searchIcon,.searchText{
+    font-size: 9px;
+    color:var(--text-black) ;
+}
+
+
 
 .BiCaretRight{
     font-size: 200px;
