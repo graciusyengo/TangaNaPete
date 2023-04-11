@@ -1,4 +1,4 @@
-export default function EpreuveCard(){
+export default function EpreuveList(){
     return(
         <div className={styles.container}></div>
     )
