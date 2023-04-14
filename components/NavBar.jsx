@@ -9,7 +9,7 @@ export default function NavBar() {
       </div>
       <div className={styles.item}>
         <ul className={styles.list}>
-          <li className={styles.listItem}>Epreuve</li>
+          <li className={styles.listItem}>Epreuves</li>
           <li className={styles.listItem}>Nous Contactez</li>
         </ul>
       </div>

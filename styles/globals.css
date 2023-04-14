@@ -2,7 +2,7 @@
     --bg-black-900: #fdf9ff;
     --text-black:#fff;
     --bg-black-50: #e8dfec;
-  
+    --text-black-500:#302E4D;
    
     --text-black-900:#303030;
     --text-black-700: #504e70;
@@ -20,5 +20,9 @@
   }
   ::-webkit-input-placeholder{
     color: #d9d9d9;
-    font-size: 15px;
+    /* transition: opacity .5s ease-in-out; */
+    font-size: 18px;
+}
+:focus::-webkit-input-placeholder{
+  opacity: 0.5;
 }

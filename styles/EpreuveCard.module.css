@@ -1,0 +1,40 @@
+.container{
+    
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 30px;
+
+color: #000000;
+ margin: 40px 40px 40px 40px; 
+
+}
+.wrapper{
+    margin-top: 50px;
+    border: 2px solid #d9d9d9;
+    padding: 0 12px 0 12px;
+    cursor: pointer;
+    transition: 1.8s border ease;
+   
+
+}
+.wrapper:hover{
+  margin-top: 50px;
+  border: 2px solid var(--skin-color);
+  padding: 0 12px 0 12px;
+  cursor: pointer;
+ 
+}
+.img{
+  border-bottom: 2px solid #d9d9d9;
+  width: 100%;
+}
+.session, .promotion{
+  color:var(--text-black-500);
+}
+.academicYear{
+    color: #d9d9d9;
+
+}
+
