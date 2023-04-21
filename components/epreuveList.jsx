@@ -1,5 +1,6 @@
 import EpreuveCard from "./epreuveCard";
 import styles from "../styles/EpreuveList.module.css";
+import Pagination from "./pagination";
 
 export default function EpreuveList() {
   return (
@@ -29,6 +30,7 @@ export default function EpreuveList() {
         <EpreuveCard />
         <EpreuveCard />
       </div>
+      <Pagination/>
     </div>
   );
 }

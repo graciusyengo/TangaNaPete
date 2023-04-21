@@ -1,0 +1,35 @@
+.listItem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 34px;
+}
+.item{
+    margin-right: 45px;
+    background-color: var(--text-black);
+    border: 1px solid var(--skin-color);
+    padding: 2px 7px 2px 7px;
+
+}
+.item:first-child{
+ background-color: var(--skin-color);
+ color: var(--text-black);
+ padding: 2px 7px 2px 7px;
+
+}
+.button{
+    color: #ffffff;
+    background-color: var(--skin-color);
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    /* identical to box height */
+    
+    padding: 2px 7px 2px 7px;
+    
+    border: none;
+    cursor: pointer;
+    
+}
