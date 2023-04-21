@@ -8,8 +8,7 @@ export default function Layout ({children}){
     return(
         <div className={styles.container}>
             <NavBar/>
-            <Main/>
-            <EpreuveList/>
+           
             {children}
             <Footer/>
             </div>

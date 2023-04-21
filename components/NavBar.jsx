@@ -16,10 +16,10 @@ export default function NavBar() {
       <div className={styles.item}>
         <div className={styles.auth}>
           <div className={styles.containerInscription}>
-            <span className={styles.inscription}>S'inscrire</span>
+            <button className={styles.inscription}>S'inscrire</button>
           </div>
           <div className={styles.containerConnexion}>
-            <span className={styles.connexion}>Connexion</span>
+            <button className={styles.connexion}>Connexion</button>
           </div>
         </div>
       </div>

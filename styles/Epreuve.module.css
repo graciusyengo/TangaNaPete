@@ -1,0 +1,27 @@
+.container{
+   border: 2px solid #d9d9d9;
+    height: calc(100vh - 115px);
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 100px;
+}
+.item:first-child{
+    border: 2px solid #d9d9d9;
+    margin-left: 90px;
+}
+.item:last-child{
+    margin-right: 24%;
+   
+}
+.nameContainer,.yearContainer,.sessionContainer,.promotionContainer{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    
+}
+.value{
+    margin-left: 20px;
+    color: #d9d9d9;
+}

@@ -1,0 +1,92 @@
+.container{
+   
+    height:  calc(100vh - 115px);
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+  position: absolute; /* postulat de départ */
+  top: 50%; left: 50%; /* à 50%/50% du parent référent */
+  transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
+
+width: 500px;
+height: 550px;
+
+    background-color:#ffffff;
+    box-shadow: -8px 15px 17px 5px rgba(0,0,0,0.14);
+    
+
+}
+.containerLogo{
+    margin-bottom: 30px;
+    margin-right: 17px;
+
+}
+.logo {
+    position: relative;
+  width: 327px;
+  height: 85px;
+  left: 95px;
+  top: 15px;
+  font-family: "Clicker Script",serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 85px;
+  color: var(--text-black-900);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  
+}
+.logo::before {
+  content: "";
+  position: absolute;
+  border-top: 5px solid var(--skin-color);
+  border-left: 5px solid var(--skin-color);
+  width: 20px;
+  height: 30px;
+  top: 10px;
+  left: -3px;
+  
+}
+.logo::after {
+  content: "";
+  position: absolute;
+  border-bottom: 5px solid var(--skin-color);
+  border-right: 5px solid var(--skin-color);
+  width: 20px;
+  height: 30px;
+  right: 130px;
+  bottom: 22px;
+  
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    
+}
+.containerInput{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    margin-top: 20px;
+
+}
+.button{
+    background-color: var(--skin-color);
+    border: none;
+    color: var(--text-black);
+    font-weight: 600;
+    font-size: 17px;
+    width: 350px;
+    margin-top: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    cursor: pointer;
+
+
+}
