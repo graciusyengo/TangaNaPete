@@ -1,4 +1,5 @@
 import styles from "../../styles/Login.module.css";
+import Link from "next/link";
 
 export default function Login() {
   return (
@@ -24,6 +25,14 @@ export default function Login() {
           </form>
         </div>
         <button className={styles.button}>Se Connecter</button>
+        
+        <div>
+        <span> vous avez pas un compte ?</span>
+        <Link href="/student/signup">
+        <span className={styles.createAnAccount} > Creer un compte</span>
+        </Link>
+        </div>
+       
       </div>
     </div>
   );

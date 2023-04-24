@@ -11,22 +11,35 @@
   display: flex;
   position: relative;
   transition: all 1.5s ease-in-out;
+  margin-top: 30px;
 }
 .imageContainer {
+  position: relative;
   width: 100vw;
   height: 100%;
   display: flex;
   justify-content: flex-end;
+ 
   margin-right: 7%;
+}
+.description{
+  position: absolute;
+  top: 22%;
+  left: 23%; 
+   color: white;
+  font-size: 30px; 
+  width: 40%; 
 }
 
 .marketingContainer {
   position: absolute;
   top: 22%;
-  left: 6%;
+  left: 22%;
   color: white;
-  font-size: 40px;
-  width: 11%;
+  font-size: 10px; 
+  width: 50%;
+  margin-top: 80px;
+  
 }
 .searchContainer {
   position: relative;
@@ -47,9 +60,8 @@
   background-color: var(--skin-color);
   position: absolute;
   top: 55px;
-  right: 180px;
+  right: 210px;
   height: 30px;
-  width: 25%;
   border: none;
   cursor: pointer;
 }
