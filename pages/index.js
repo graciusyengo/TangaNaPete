@@ -18,6 +18,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main />
+      <div className="text-3xl font-bold underline">hello</div>
       <EpreuveList />
     </>
   );
