@@ -71,7 +71,6 @@ export default function Featured() {
                 </div>
               </div>
             </div>
-          
         ))}
       </div>
       <BiCaretRight
