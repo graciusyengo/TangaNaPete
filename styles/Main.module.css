@@ -28,7 +28,7 @@
   left: 23%; 
    color: white;
   font-size: 50px; 
-  width: 40%; 
+  width: 50%; 
 }
 
 .marketingContainer {
@@ -56,14 +56,25 @@
   padding-left: 10px;
 }
 
-.search {
-  background-color: var(--skin-color);
-  position: absolute;
-  top: 55px;
-  right: 210px;
-  height: 30px;
-  border: none;
+.searchButton{
+  color: var(--skin-color);
+  background-color: var(--text-black);
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  margin-top: 55px;
+  font-size: 29px;
+  line-height: 36px;
+  /* identical to box height */
+  padding: 7px 35px 7px 35px;
+  border-radius: 15px;
+  border: 1px #d9d9d9 solid;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+.searchButton:hover{
+  transform: scale(1.05);
+  
 }
 .searchIcon,
 .searchText {

@@ -42,14 +42,11 @@
 .item:last-child::before {
     content: "";
     position: absolute;
-    
     border-left: 6px solid #ACACAC;
     left: -55px;
     top: 33px;
     width: 25px;
     height: 200px;
-   
-   
   }
 .titleSuggestion {
     font-family: 'Inter';
@@ -57,16 +54,12 @@
     font-weight: 400;
     font-size: 40px;
     line-height: 48px;
-    
     color: #ACACA8;
   }
   .description{
       font-size: 24px;
       line-height: 2rem;
-      
-
   }
-
 .buttonComment {
   background-color: var(--skin-color);
   border-radius: 15px;
