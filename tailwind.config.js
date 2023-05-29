@@ -1,4 +1,4 @@
-const { jssPreset } = require('@material-ui/core');
+
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {

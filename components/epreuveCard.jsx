@@ -6,9 +6,8 @@ export default function EpreuveCard({ dataEpreuves }) {
   return (
     <div className={styles.container}>
       {dataEpreuves.map((epreuve) => {
-        {console.log(epreuve.img)}
-        <div className={styles.wrapper} key={epreuve._id}>
-          <Link href="/epreuve/12">
+       return( <div className={styles.wrapper} key={epreuve._id}>
+          <Link href={`epreuve/${epreuve._id}`}>
             <Image
               src={epreuve.img}
               alt="epreuve"
@@ -23,7 +22,8 @@ export default function EpreuveCard({ dataEpreuves }) {
           <h4 className={styles.academicYear}> {epreuve.academicYear}</h4>
           <h4 className={styles.session}>{epreuve.session}</h4>
           <h4 className={styles.promotion}> {epreuve.promote}</h4> 
-        </div>;
+          </div>
+          )
       })}
     </div>
   );
