@@ -42,3 +42,16 @@ export default function Epreuve() {
     </div>
   );
 }
+
+export const getServerSideProps= async(context)=>{
+  const {params}=context
+  const {id}=params
+  console.log(context)
+
+  return{
+    props:{
+
+    }
+  }
+
+}

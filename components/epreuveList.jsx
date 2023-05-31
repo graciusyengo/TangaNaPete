@@ -19,7 +19,6 @@ export default function EpreuveList() {
     }).catch((error)=>{
       console.log(error)
     })
-
   },[query])
   const search = (dataEpreuves) => {
     return dataEpreuves.filter(
@@ -29,7 +28,6 @@ export default function EpreuveList() {
           dataEpreuve[key].toLowerCase().includes(query) ||
             dataEpreuve[key].toUpperCase().includes(query)
         )
-
       // METHODE1
       // dataSinger.name.toLowerCase().includes(query) ||
       // dataSinger.fullname.toLowerCase().includes(query) ||
@@ -37,9 +35,6 @@ export default function EpreuveList() {
       // dataSinger.style.map((item) => item.toLowerCase()).includes(query)
     );
   };
-
-
-
   return (
     <div className={styles.container}>
       <div className={styles.searchContainer}>

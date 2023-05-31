@@ -7,15 +7,6 @@ export default function Featured() {
 
   const [index, setIndex] = useState(0);
 
-  // useEffect(()=>{
-  //   const getAllEpreuve=()=>{
-  //     try {
-  //       const getAllEpreuve= await
-  //     } catch (error) {
-        
-  //     }
-  //   }
-  // })
   const imagesAndDescriptions = [
     {
       id:"1",
