@@ -2,7 +2,7 @@
 description 
 ## Getting Started
 
-1. demarrage
+1. Demarrage
 
 
 First, run the development server:
@@ -16,8 +16,6 @@ pnpm dev
 ```
 2. Installation outils
 3. Create Next App
-
-
 
 ## Learn More
 
