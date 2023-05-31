@@ -13,7 +13,7 @@
   transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
 
 width: 500px;
-height: 550px;
+height: auto;
 
     background-color:#ffffff;
     box-shadow: -8px 15px 17px 5px rgba(0,0,0,0.14);
@@ -81,7 +81,7 @@ height: 550px;
     font-weight: 600;
     font-size: 17px;
     width: 350px;
-    margin-top: 50px;
+    margin-top: 35px;
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 15px;
@@ -96,6 +96,9 @@ height: 550px;
   transform: scale(1.05);
 
 
+}
+.goToSignup{
+  margin-bottom: 70px;
 }
 .createAnAccount{
   color: var(--skin-color);
