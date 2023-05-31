@@ -1,8 +1,8 @@
 import Epreuve from "@/models/Epreuve";
-import dbConnect from "@/util/mongoDb";
+import db from "@/util/mongoDb";
 export default async function handler(req, res) {
   const { method,query:{id} } = req;
-  dbConnect().catch((error) => {
+  db.connect().catch((error) => {
     res.status(403).json("erreur connection avec mongo db");
   });
 

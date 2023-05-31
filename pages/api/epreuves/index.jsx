@@ -1,9 +1,9 @@
 import Epreuve from "../../../models/Epreuve";
-import dbConnect from "../../../util/mongoDb";
+import db from "../../../util/mongoDb";
 export default async function handler(req, res) {
   const { method } = req;
   console.log(method);
-  dbConnect().catch((error) => {
+  db.connect().catch((error) => {
     res.status(405).json("erreur connection Bd");
   });
   if (method === "GET") {

@@ -8,7 +8,9 @@ export default function Login() {
     formState: { errors },
   } = useForm();
 
-  const submitHandler = ({ email, password }) => {};
+  const submitHandler = ({ email, password }) => {
+    console.log(email,password)
+  };
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
