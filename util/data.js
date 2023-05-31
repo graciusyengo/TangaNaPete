@@ -1,24 +1,25 @@
 import bcrypt from "bcryptjs"
 
-const data = {
+ const data = {
   users: [
     {
       name: "yengo",
       email: "yengo@gmail.com",
-      password: "123",
+      password: bcrypt.hashSync("123"),
       isAdmin: true,
     },
     {
       name: "mbakama",
       email: "mbakama@gmail.com",
-      password: "1234",
+      password: bcrypt.hashSync("1234"),
       isAdmin: false,
     },
     {
       name: "holel",
       email: "holel@gmail.com",
-      password: "1234",
+      password: bcrypt.hashSync("1234"),
       isAdmin: false,
     },
   ],
 };
+export default data
