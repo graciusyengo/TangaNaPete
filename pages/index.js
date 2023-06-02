@@ -4,8 +4,10 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Main from "../components/Main";
 import EpreuveList from "../components/epreuveList";
+
 const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
+
   return (
     <>
       <Head>
@@ -17,6 +19,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+   
+
       <Main />
       <div className="text-3xl font-bold underline">hello</div>
       <EpreuveList />

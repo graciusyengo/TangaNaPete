@@ -1,8 +1,10 @@
 import { useState } from "react";
 import styles from "../styles/NavBar.module.css";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 export default function NavBar() {
   const [isHovering, setHovering] = useState(false);
+
   return (
     <div className={styles.container}>
       <div className={styles.item}>
@@ -32,11 +34,14 @@ export default function NavBar() {
               <button className={styles.inscription}>S'inscrire</button>
             </div>
           </Link>
-          <Link href="/student/login">
-            <div className={styles.containerConnexion}>
-              <button className={styles.connexion}>Connexion</button>
-            </div>
-          </Link>
+
+        
+            <Link href="/student/login">
+              <div className={styles.containerConnexion}>
+                <button className={styles.connexion}>Connexion</button>
+              </div>
+            </Link>
+        
         </div>
       </div>
     </div>

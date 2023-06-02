@@ -1,19 +1,45 @@
 import styles from "../../styles/Login.module.css";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import {signIn} from "next-auth/react";
+// import {getError} from "../../util/error"
+
+import {useRouter} from "next/router"
+import { useEffect } from "react";
+
 export default function Login() {
+
+  
+
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm();
 
-  const submitHandler = ({ email, password }) => {
-    console.log(email,password)
+  const submitHandler = async ({ email, password }) => {
+   
+    
+      const result =await signIn(
+        "credentials",{
+          redirect:false,
+          email,
+          password,
+        }
+      )
+      // if(result.error){
+      //   toast.error(result.error)
+      // }
+      
+    // } catch (err) {
+    //   toast.error(getError(err))
+      
+    // }
+    console.log(result)
   };
   return (
     <div className={styles.container}>
-      <div className={styles.wrapper}>
+      <div className={styles.wrapper}>  
         <div className={styles.containerLogo}>
           <h2 className={styles.logo}>TangaNaPete</h2>
         </div>
