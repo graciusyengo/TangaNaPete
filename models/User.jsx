@@ -1,6 +1,4 @@
 import mongoose from "mongoose"
-
-
 const UserSchema= new mongoose.Schema({
     name:{
         type:String,
@@ -11,7 +9,6 @@ const UserSchema= new mongoose.Schema({
     email:{
         type:String,
         required:[true, "champs obligatoire"],
-        
     },
     password:{
         type:String,

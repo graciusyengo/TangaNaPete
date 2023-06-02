@@ -20,6 +20,19 @@ import bcrypt from "bcryptjs"
       password: bcrypt.hashSync("1234"),
       isAdmin: false,
     },
+    {
+      name: "christian",
+      email: "christian@gmail.com",
+      password: bcrypt.hashSync("1234"),
+      isAdmin: false,
+    },
+    {
+      name: "obeldddd",
+      email: "obel@gmail.com",
+      password: bcrypt.hashSync("1234567"),
+      isAdmin: false,
+    },
+
   ],
 };
 export default data
