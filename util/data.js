@@ -23,12 +23,12 @@ import bcrypt from "bcryptjs"
     {
       name: "christian",
       email: "christian@gmail.com",
-      password: bcrypt.hashSync("1234"),
+      password: bcrypt.hashSync("123456"),
       isAdmin: false,
     },
     {
-      name: "obeldddd",
-      email: "obel@gmail.com",
+      name: "chadrack",
+      email: "chadrack@gmail.com",
       password: bcrypt.hashSync("1234567"),
       isAdmin: false,
     },

@@ -26,7 +26,6 @@ export default NextAuth(
         async authorize(credentials) {
           await db.connect();
           const user = await User.findOne({ email: credentials.email });
-          console.log("+++",user);
           await db.disconnect();
           if (user && bcrypt.compareSync(credentials.password, user.password)) {
             return {
@@ -43,6 +42,5 @@ export default NextAuth(
     ],
   }
   // Configure one or more authentication providers
-
   // ...add more providers here
 );
