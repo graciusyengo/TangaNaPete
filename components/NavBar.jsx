@@ -3,7 +3,8 @@ import styles from "../styles/NavBar.module.css";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 export default function NavBar() {
-  const [isHovering, setHovering] = useState(false);
+  const { status, data: session } = useSession();
+  console.log(status);
 
   return (
     <div className={styles.container}>
@@ -29,19 +30,29 @@ export default function NavBar() {
       </div>
       <div className={styles.item}>
         <div className={styles.auth}>
+
+        {status === "loading" ? (
+            "loading"
+          ) : session?.user ? (
+            <span className={styles.logOut}>Se deconnecter</span>
+          ) : (
           <Link href="/student/signup">
             <div className={styles.containerInscription}>
               <button className={styles.inscription}>S'inscrire</button>
             </div>
           </Link>
-
-        
-            <Link href="/student/login">
+        )}
+          {status === "loading" ? (
+            "loading"
+          ) : session?.user ? (
+            <span className={styles.name}>{session.user.name}</span> 
+          ) : (
+            <Link href="/student/login" className={styles.login} >
               <div className={styles.containerConnexion}>
                 <button className={styles.connexion}>Connexion</button>
               </div>
             </Link>
-        
+          )}
         </div>
       </div>
     </div>

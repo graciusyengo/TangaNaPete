@@ -124,4 +124,15 @@
 .connexion:hover{
   transform: scale(1.05);
 }
+.logOut{
+  margin-right: 20px;
+  color: var(--skin-color);
+  cursor: pointer;
+  }
+ .name{
+  box-shadow: -8px 15px 17px 5px rgba(0,0,0,0.14);
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+ }
 
