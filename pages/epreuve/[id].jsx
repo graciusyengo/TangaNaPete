@@ -1,8 +1,13 @@
 import styles from "../../styles/Epreuve.module.css";
 import Image from "next/image";
 import EpreuveListSimilary from "../../components/epreuveListSimilary"
+import db from "../../util/mongoDb"
+import Epreuve from "../../models/Epreuve"
+import { useRouter } from "next/router";
 
-export default function Epreuve() {
+export default function EpreuveUni() {
+  const {query}= useRouter()
+  const {id}=  query
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -43,15 +48,20 @@ export default function Epreuve() {
   );
 }
 
-export const getServerSideProps= async(context)=>{
-  const {params}=context
-  const {id}=params
-  console.log(context)
+// export const getServerSideProps= async(context)=>{
+  
 
-  return{
-    props:{
+//   const {params}=context
+//   const {id}=params
+//   db.connect()
+//   const epreuve= await Epreuve.findOne({id})
+ 
 
-    }
-  }
+//   return{
+//     props:{
 
-}
+
+//     }
+//   }
+
+

@@ -2,24 +2,23 @@ import styles from "../../styles/Login.module.css";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { signIn, useSession } from "next-auth/react";
- import {getError} from "../../util/error"
+import { getError } from "../../util/error";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import {toast} from "react-toastify"
-
-
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 export default function Login() {
-  const router=useRouter()
-  const {redirect}= router.query
+  const router = useRouter();
+  const { redirect } = router.query;
 
-  const {data:session}=useSession()
-  console.log(session)
+  const { data: session } = useSession();
+  console.log(session);
 
-  useEffect(()=>{
-    if(session?.user){
-      router.push(redirect||"/")
+  useEffect(() => {
+    if (session?.user) {
+      router.push(redirect || "/");
     }
-  },[router,session,redirect])
+  }, [router, session, redirect]);
   const {
     handleSubmit,
     register,
@@ -27,26 +26,22 @@ export default function Login() {
   } = useForm();
 
   const submitHandler = async ({ email, password }) => {
-
-
     try {
       const result = await signIn("credentials", {
         redirect: false,
         email,
         password,
-        
       });
 
-      console.log(result)
+      console.log(result);
       // si error n'est pas null
-      if(result?.error){
-        toast.error(result.error)
+      if (result?.error) {
+        toast.error(result.error);
       }
-      
     } catch (err) {
-      toast.error(getError(err))
+      toast.error(getError(err));
     }
-    
+
     // if(result.error){
     //   toast.error(result.error)
     // }
@@ -54,7 +49,6 @@ export default function Login() {
     //   toast.error(getError(err))
 
     // }
-   
   };
   return (
     <div className={styles.container}>
@@ -109,6 +103,7 @@ export default function Login() {
             <span className={styles.createAnAccount}> Creer un compte</span>
           </Link>
         </div>
+        <ToastContainer position="bottom-center" limit={1} />
       </div>
     </div>
   );

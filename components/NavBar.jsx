@@ -1,10 +1,17 @@
 import { useState } from "react";
 import styles from "../styles/NavBar.module.css";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
+import { Menu } from '@headlessui/react'
+import "react-toastify/dist/ReactToastify.css"
 export default function NavBar() {
   const { status, data: session } = useSession();
   console.log(status);
+
+
+  const logoutHandleClick=()=>{
+    signOut({callbackUrl:"/student/login"})
+  }
 
   return (
     <div className={styles.container}>
@@ -30,11 +37,10 @@ export default function NavBar() {
       </div>
       <div className={styles.item}>
         <div className={styles.auth}>
-
         {status === "loading" ? (
             "loading"
           ) : session?.user ? (
-            <span className={styles.logOut}>Se deconnecter</span>
+            <span className={styles.logOut} onClick={logoutHandleClick}>Se deconnecter</span>
           ) : (
           <Link href="/student/signup">
             <div className={styles.containerInscription}>
@@ -43,9 +49,11 @@ export default function NavBar() {
           </Link>
         )}
           {status === "loading" ? (
-            "loading"
+            ""
           ) : session?.user ? (
+            <Menu as="div" className="relative ">
             <span className={styles.name}>{session.user.name}</span> 
+            </Menu>
           ) : (
             <Link href="/student/login" className={styles.login} >
               <div className={styles.containerConnexion}>
