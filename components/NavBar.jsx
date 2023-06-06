@@ -3,7 +3,6 @@ import styles from "../styles/NavBar.module.css";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 export default function NavBar() {
-  const [isHovering, setHovering] = useState(false);
   const { status, data: session } = useSession();
   console.log(status);
 
@@ -53,7 +52,6 @@ export default function NavBar() {
                 <button className={styles.connexion}>Connexion</button>
               </div>
             </Link>
-            
           )}
         </div>
       </div>
