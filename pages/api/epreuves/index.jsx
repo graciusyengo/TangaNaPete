@@ -8,8 +8,7 @@ export default async function handler(req, res) {
   });
   if (method === "GET") {
     try {
-      const q = req.query;
-      console.log(q);
+      
       const epreuves = await Epreuve.find();
       !epreuves && res.staut(403).json("ep");
 

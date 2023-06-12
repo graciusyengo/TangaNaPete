@@ -11,7 +11,7 @@ export default function EpreuveCard({ dataEpreuves }) {
     <div className={styles.container}>
       {dataEpreuves.map((epreuve) => {
        return( <div className={styles.wrapper} key={epreuve._id}>
-           <Link href={"epreuve/epreuve._id"}> 
+           <Link href={`epreuve/${epreuve._id}`}> 
             <Image
               src={epreuve.img}
               alt="epreuve"

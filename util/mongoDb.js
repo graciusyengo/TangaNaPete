@@ -2,45 +2,48 @@ import mongoose, { connection } from "mongoose";
 
 // il vas commencer à stocker l'état de ma connection
 const connections = {};
-
- async function connect()  {
-  // verification si nous somme connecter 
+async function connect() {
+  // verification si nous somme connecter
   if (connection.isConnected) {
     console.log("vous etez deja connecter");
     return;
   }
   // signifie que nous avons une file d'attente de connection
   // recuperation de la premiere connection
-  if (mongoose.connections.length > 0) {  
-   connection.isConnected=mongoose.connections[0].readyState
-   // signifie que la connection est remplis et l'etat du rayons est 1 on est connecter (mode de connection)
-   if(connection.isConnected===1){
-    // signifie qu'il n epas necessaire de se connecter à la base de données car nous somme deja connecter 
-    console.log("utiliser la connection precedent")
-    return;
-
-    
-   }
-   await mongoose.disconnect()
+  if (mongoose.connections.length > 0) {
+    connection.isConnected = mongoose.connections[0].readyState;
+    // signifie que la connection est remplis et l'etat du rayons est 1 on est connecter (mode de connection)
+    if (connection.isConnected === 1) {
+      // signifie qu'il n epas necessaire de se connecter à la base de données car nous somme deja connecter
+      console.log("utiliser la connection precedent");
+      return;
+    }
+    await mongoose.disconnect();
   }
-  const db= await mongoose.connect(process.env.MONGODB_URL)
-  console.log("new connection")
-  connection.isConnected=db.connections[0].readyState
-};
+  const db = await mongoose.connect(process.env.MONGODB_URL);
+  console.log("new connection");
+  connection.isConnected = db.connections[0].readyState;
+}
 
- async function disconnect(){
+async function disconnect() {
   // il vas se deconnecter que si on est en mode production
-  if(connection.isConnected){
-    if(process.env.NODE_ENV==="production"){
-      await mongoose.disconnect()
-      connection.isConnected=false
+  if (connection.isConnected) {
+    if (process.env.NODE_ENV === "production") {
+      await mongoose.disconnect();
+      connection.isConnected = false;
     }
   }
-
-   
 }
-const db={connect,disconnect }
-export default db
+
+function convertDocToObjet(doc){
+  doc._id= doc._id.toString()
+  doc.createdAt= doc.createdAt.toString()
+  doc.updatedAt= doc.updatedAt.toString()
+  return doc
+
+}
+const db = { connect, disconnect ,convertDocToObjet};
+export default db;
 
 // import mongoose from "mongoose";
 

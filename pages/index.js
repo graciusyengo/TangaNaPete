@@ -30,7 +30,5 @@ export default function Home() {
   );
 }
 
-export default const getServerSideProps=()=>{
-  const epreuve
-}
+
 
