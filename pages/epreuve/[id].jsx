@@ -14,7 +14,7 @@ export default function Epreuve({ epreuve }) {
         <div className={styles.item}>
           <Image
             src={epreuve.img}
-            height={500}
+            height={100}
             width={400}
             alt="epreuve"
           />
@@ -34,8 +34,8 @@ export default function Epreuve({ epreuve }) {
               <h3 className={styles.value}> {epreuve.session}</h3>
             </div>
             <div className={styles.promotionContainer}>
-              <h2 className={styles.promotion}>Promote:</h2>
-              <h3 className={styles.value}> {epreuve.session}</h3>
+              <h2 className={styles.promotion}>Promotion:</h2>
+              <h3 className={styles.value}> {epreuve.promote}</h3>
             </div>
           </div>
           <div className={styles.buttonContainer}>
