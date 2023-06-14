@@ -11,8 +11,8 @@
   left: 50%; /* à 50%/50% du parent référent */
   transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
   width: 500px;
-  height: 600px;
-
+  height: 700px;
+margin-top: 50px;
   background-color: #ffffff;
   box-shadow: -8px 15px 17px 5px rgba(0, 0, 0, 0.14);
 }

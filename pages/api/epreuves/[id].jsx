@@ -16,4 +16,15 @@ export default async function handler(req, res) {
       res.status(500).json(error);
     }
   }
+
+  
+  //  if (method === "PUT") {
+  //   const formData= req.body
+  //   try {
+  //     const epreuve = await Epreuve.findByIdAndUpdate(id{$set:formData});
+  //     res.status(200).json(epreuve);
+  //   } catch (error) {
+  //     res.status(500).json(error);
+  //   }
+  // }
 }

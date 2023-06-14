@@ -1,16 +1,18 @@
 import Epreuve from "../../../models/Epreuve";
 import db from "../../../util/mongoDb";
 export default async function handler(req, res) {
-  const { method } = req;
-  console.log(method);
+
   db.connect().catch((error) => {
     res.status(405).json("erreur connection Bd");
   });
+  const { method } = req;
+  console.log(method);
+ 
   if (method === "GET") {
     try {
       
       const epreuves = await Epreuve.find();
-      !epreuves && res.staut(403).json("ep");
+       !epreuves && res.status(403).json("epreuve pas trouver");
 
       res.status(200).json(epreuves);
     } catch (error) {

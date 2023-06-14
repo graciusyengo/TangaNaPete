@@ -1,18 +1,30 @@
 import db from "@/util/mongoDb";
-import User from "../../../models/User"
-
-export default async function handler(req,res) {
-
+import User from "../../../models/User";
+import bcrypt from "bcrypt";
+export default async function handler(req, res) {
+    
+  db.connect().catch((error) => {
+    console.log(error);
+  });
   const { method } = req;
-  if (method === "GET") {
-    const formData= req.body
+  if (method === "POST") {
     try {
-        const users= await User.create(formData)
-        res.status(200).json(users)
-        
+      //hash the password
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hashSync(req.body.password,salt);
+      //generate new paasword
+      const newUser = new User({
+        name: req.body.name,
+        email: req.body.email,
+        password: hashedPassword,
+        passwordConfirm:req.body.passwordConfirm,
+        isAdmin: req.body.isAdmin
+      });
+      //save user
+      const user = await newUser.save();
+      res.status(201).json(user);
     } catch (error) {
-        res.status(500).json("erreur d'inscription")
-        
+      res.status(500).json("erreur d'inscription");
     }
   }
 }

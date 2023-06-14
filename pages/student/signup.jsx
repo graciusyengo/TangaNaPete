@@ -1,6 +1,17 @@
 import styles from "../../styles/Signup.module.css";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
 export default function Signup() {
+
+
+const {handleSubmit,register,formState:{errors}}=useForm()
+console.log(handleSubmit)
+
+
+const submitHandler= async({name,email,password,passwordConfirm})=>{
+  console.log(name,email,password,passwordConfirm)
+
+}
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -8,26 +19,66 @@ export default function Signup() {
           <h2 className={styles.logo}>TangaNaPete</h2>
         </div>
         <div className={styles.containerLogin}>
-          <form className={styles.form}>
+          <form className={styles.form} onSubmit={handleSubmit(submitHandler)}>
             <div className={styles.containerInput}>
               <label htmlFor=""> Nom</label>
-              <input type="text" />
+              <input type="text"    {...register("name", {
+                  required: "désolé veuillez entrer votre nom",
+                  maxLength: {
+                    value:15,
+                    message: "Veuillez entrer un nom de moins de 16 caractères",
+                  }
+                })} />
+                   {errors.name && (
+                <div className="text-red-500">{errors.name.message}</div>
+              )}
             </div>
             <div className={styles.containerInput}>
               <label htmlFor=""> Email</label>
-              <input type="email" />
+              <input type="email" {...register("email", {
+                  required: "désolé veuillez entrer votre email",
+                  pattern: {
+                    value:
+                      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/i,
+                    message: "entrer un email valide",
+                  },
+                })} />
+                 {errors.email && (
+                <div className="text-red-500">{errors.email.message}</div>
+              )}
             </div>
             <div className={styles.containerInput}>
               <label htmlFor=""> Mot De Passe</label>
-              <input type="password" />
+              <input type="password"    {...register("password", {
+                  required: " veuillez entrer votre mot de passe ",
+                  minLength: {
+                    value: 6,
+                    message:
+                      "veuillez entrez un mot de passe de plus de 5 caractere",
+                  },
+                })} />
+                 {errors.password && (
+                <div className="text-red-500">{errors.password.message}</div>
+              )}
             </div>
             <div className={styles.containerInput}>
               <label htmlFor=""> Confirmer votre mot de passe</label>
-              <input type="password" />
+              <input type="password"  {...register("passwordConfirm", {
+                  required: "veuillez confirmer votre mot de passe",
+                  minLength: {
+                    value: 6,
+                    message:
+                      "votre confirmation de mot de passe doit macther avec votre mot passe",
+                  },
+                })}   />
+                  {errors.passwordConfirm && (
+                <div className="text-red-500">{errors.passwordConfirm.message}</div>
+              )}
             </div>
+            <button className={styles.button}>S'inscrire</button>
           </form>
         </div>
-        <button className={styles.button}>S'inscrire</button>
+       
         
           <div>
             <span> vous avez deja un compte ?</span>

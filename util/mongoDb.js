@@ -35,14 +35,14 @@ async function disconnect() {
   }
 }
 
-function convertDocToObjet(doc){
-  doc._id= doc._id.toString()
-  doc.createdAt= doc.createdAt.toString()
-  doc.updatedAt= doc.updatedAt.toString()
-  return doc
+// function convertDocToObjet(doc){
+//   doc._id= doc._id.toString()
+//   doc.createdAt= doc.createdAt.toString()
+//   doc.updatedAt= doc.updatedAt.toString()
+//   return doc
 
-}
-const db = { connect, disconnect ,convertDocToObjet};
+// }
+const db = { connect, disconnect};
 export default db;
 
 // import mongoose from "mongoose";

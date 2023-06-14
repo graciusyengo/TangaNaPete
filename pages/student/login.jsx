@@ -32,7 +32,6 @@ export default function Login() {
         email,
         password,
       });
-
       console.log(result);
       // si error n'est pas null
       if (result?.error) {

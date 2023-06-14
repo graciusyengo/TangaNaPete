@@ -36,6 +36,7 @@ export default NextAuth(
               isAdmin: user.isAdmin,
             };
           }
+          
           throw new Error("email invalide or password");
         },
       }),

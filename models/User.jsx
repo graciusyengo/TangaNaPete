@@ -14,6 +14,11 @@ const UserSchema= new mongoose.Schema({
         type:String,
         required:[true,"champs obligtoire"]
     },
+    passwordConfirm:{
+        type:String,
+       
+
+    },
     isAdmin:{
         type:Boolean,
         required:true
