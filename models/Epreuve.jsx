@@ -4,26 +4,26 @@ import mongoose from "mongoose"
 const EpreuveSchema= new mongoose.Schema({
     name:{
         type:String,
-        required:[true,"champs obligatoire"],
+        // required:[true,"champs obligatoire"],
         minlength:3,
     },
     academicYear:{
         type:String,
-        required:true,
+        // required:true,
         
     },
     category:{
         type:String,
-        required:true
+        // required:true
 
     },
     session:{
         type:String,
-        required:true
+        // required:true
     },
     promote:{
         type:String,
-        required:true
+        // required:true
     },
     img:{
         type:String,
