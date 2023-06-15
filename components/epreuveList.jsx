@@ -62,17 +62,24 @@ export default function EpreuveList() {
               ></path>
             </svg>
           </div>
+        
           <input
             type="search"
             id="default-search"
-            className="block w-full h-16 pl-10 text-lg  text-gray-900 border border-gray-12 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-red-400 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className=" block w-full h-16 pl-10 text-lg  text-gray-900 border border-gray-12 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-red-400 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Rechercher votre cours..."
             required
             onChange={(e) => setQuery(e.target.value)}
           />
-        </div>
+          </div>
+        
+    
         <div className={styles.epreuve}>
-          <h4 className={styles.title}> Epreuves</h4>
+         <select className={styles.select}>
+          <option>Examen</option>
+          <option>Interrogations</option>
+          <option>Travaux pratique</option>
+         </select>
         </div>
       </div>
       <div className={styles.containerCard}>
