@@ -5,11 +5,15 @@ export default function Signup() {
 
 
 const {handleSubmit,register,formState:{errors}}=useForm()
-console.log(handleSubmit)
+
 
 
 const submitHandler= async({name,email,password,passwordConfirm})=>{
   console.log(name,email,password,passwordConfirm)
+  if(password!==passwordConfirm){
+    alert("votre mot de passe n'est match pas")
+  
+  }
 
 }
   return (
@@ -57,6 +61,7 @@ const submitHandler= async({name,email,password,passwordConfirm})=>{
                       "veuillez entrez un mot de passe de plus de 5 caractere",
                   },
                 })} />
+               
                  {errors.password && (
                 <div className="text-red-500">{errors.password.message}</div>
               )}
@@ -75,7 +80,7 @@ const submitHandler= async({name,email,password,passwordConfirm})=>{
                 <div className="text-red-500">{errors.passwordConfirm.message}</div>
               )}
             </div>
-            <button className={styles.button}>S'inscrire</button>
+            <button type="submit" className={styles.button}>S'inscrire</button>
           </form>
         </div>
        

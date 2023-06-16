@@ -48,8 +48,8 @@ export default function NavBar() {
             </div>
           </Link>
         )}
-          {status === "loading" ? (
-            ""
+          {status ==="loading"? (
+            "LLL"
           ) : session?.user ? (
             <Menu as="div" className="relative ">
             <span className={styles.name}>{session.user.name}</span> 

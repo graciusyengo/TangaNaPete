@@ -11,8 +11,9 @@ export default function Login() {
   const router = useRouter();
   const { redirect } = router.query;
 
-  const { data: session } = useSession();
+  const {status, data: session } = useSession();
   console.log(session);
+  console.log(status)
 
   useEffect(() => {
     if (session?.user) {
@@ -92,7 +93,9 @@ export default function Login() {
                 <div className="text-red-500">{errors.password.message}</div>
               )}
             </div>
-            <button className={styles.button}>Se Connecter</button>
+
+            
+            <button className={styles.button}>SeConnecter</button>
           </form>
         </div>
 
