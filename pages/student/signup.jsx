@@ -2,7 +2,9 @@ import styles from "../../styles/Signup.module.css";
 import Link from "next/link";
 import axios from "axios"
 import { useForm } from "react-hook-form";
+import { useRouter } from 'next/router'
 export default function Signup() {
+  const router= useRouter()
   const {
     handleSubmit,
     register,
@@ -21,6 +23,7 @@ export default function Signup() {
       };
       try {
       const res= await axios.post("/api/auth/signup", user);
+      router.push("/student/login")
       console.log(res)
         console.log("ok")
       } catch (error) {
