@@ -7,6 +7,8 @@ import axios from "axios";
 export default function EpreuveList() {
   const [query, setQuery] = useState("");
   const [epreuves, setEpreuves] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 5;
   console.log(query);
 
   const keys=["name","academicYear","category","session","promote",]
@@ -35,6 +37,9 @@ export default function EpreuveList() {
       // dataSinger.style.map((item) => item.toLowerCase()).includes(query)
     );
   };
+  const onPageChange=(page)=>{
+    setCurrentPage(page)
+  }
   return (
     <div className={styles.container}>
       <div className={styles.searchContainer}>
@@ -83,10 +88,16 @@ export default function EpreuveList() {
         </div>
       </div>
       <div className={styles.containerCard}>
-        <EpreuveCard dataEpreuves={search(epreuves)} />
+        <EpreuveCard dataEpreuves={search(epreuves)}  items={epreuves.length} // 100
+        currentPage={currentPage} // 1
+        pageSize={pageSize} />
        
       </div>
-      <Pagination />
+      <Pagination  items={epreuves.length} // 100
+        currentPage={currentPage} // 1
+        pageSize={pageSize} // 10
+        onPageChange={onPageChange}
+      />
     </div>
   );
 }

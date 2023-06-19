@@ -2,14 +2,16 @@ import Image from "next/image";
 import styles from "../styles/EpreuveCard.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
-export default function EpreuveCard({ dataEpreuves }) {
+import {paginate} from "../components/paginate"
+export default function EpreuveCard({ dataEpreuves,currentPage,pageSize}) {
 
-  
+  const paginatedPosts = paginate(dataEpreuves, currentPage, pageSize);
+  console.log(paginatedPosts)
 
   console.log(dataEpreuves);
   return (
     <div className={styles.container}>
-      {dataEpreuves.map((epreuve) => {
+      {paginatedPosts.map((epreuve) => {
        return( <div className={styles.wrapper} key={epreuve._id}>
            <Link href={`epreuve/${epreuve._id}`}> 
             <Image

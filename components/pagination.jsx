@@ -1,16 +1,31 @@
-import styles from "../styles/Pagination.module.css"
-export default function Pagination(){
-    return(
-        <div className={styles.container}>
-            <div className={styles.listItem}>
-                <div className={styles.item}>1</div>
-                <div className={styles.item}>2</div>
-                <div className={styles.item}>3</div>
-                <div className={styles.item}>4</div>
-                <div className={styles.item}>5</div>
-                <div className={styles.item}>6</div>
-                <button className={styles.button}> Suivant</button>
-            </div>
-        </div>
-    )
+import styles from "../styles/Pagination.module.css";
+export default function Pagination({
+  items,
+  pageSize,
+  currentPage,
+  onPageChange,
+}) {
+  const pagesCount = Math.ceil(items / pageSize); // 100/10
+
+  if (pagesCount === 1) return null;
+  const pages = Array.from({ length: pagesCount }, (_, i) => i + 1);
+
+  return (
+    <div className={styles.container}>
+        <ul className={styles.pagination}>
+      {pages.map((page) => (
+        <li
+          key={page}
+          className={
+            page === currentPage ? styles.pageItemActive : styles.pageItem
+          }
+        >
+          <a className={styles.pageLink} onClick={() => onPageChange(page)}>
+            {page}
+          </a>
+        </li>
+      ))}
+      </ul>
+    </div>
+  );
 }
