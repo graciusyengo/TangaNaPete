@@ -1,21 +1,33 @@
 import styles from "../../styles/Signup.module.css";
 import Link from "next/link";
+import axios from "axios"
 import { useForm } from "react-hook-form";
 export default function Signup() {
-
-
-const {handleSubmit,register,formState:{errors}}=useForm()
-
-
-
-const submitHandler= async({name,email,password,passwordConfirm})=>{
-  console.log(name,email,password,passwordConfirm)
-  if(password!==passwordConfirm){
-    alert("votre mot de passe n'est match pas")
-  
-  }
-
-}
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+  const submitHandler = async ({ name, email, password, passwordConfirm }) => {
+    console.log(name, email, password, passwordConfirm);
+    if (password !== passwordConfirm) {
+      alert("votre mot de passe n'est match pas");
+    } else {
+      const user = {
+        name: name,
+        email: email,
+        password:password,
+        passwordConfirm:passwordConfirm,
+      };
+      try {
+      const res= await axios.post("/api/auth/signup", user);
+      console.log(res)
+        console.log("ok")
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -26,72 +38,86 @@ const submitHandler= async({name,email,password,passwordConfirm})=>{
           <form className={styles.form} onSubmit={handleSubmit(submitHandler)}>
             <div className={styles.containerInput}>
               <label htmlFor=""> Nom</label>
-              <input type="text"    {...register("name", {
+              <input
+                type="text"
+                {...register("name", {
                   required: "désolé veuillez entrer votre nom",
                   maxLength: {
-                    value:15,
+                    value: 15,
                     message: "Veuillez entrer un nom de moins de 16 caractères",
-                  }
-                })} />
-                   {errors.name && (
+                  },
+                })}
+              />
+              {errors.name && (
                 <div className="text-red-500">{errors.name.message}</div>
               )}
             </div>
             <div className={styles.containerInput}>
               <label htmlFor=""> Email</label>
-              <input type="email" {...register("email", {
+              <input
+                type="email"
+                {...register("email", {
                   required: "désolé veuillez entrer votre email",
                   pattern: {
                     value:
                       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/i,
                     message: "entrer un email valide",
                   },
-                })} />
-                 {errors.email && (
+                })}
+              />
+              {errors.email && (
                 <div className="text-red-500">{errors.email.message}</div>
               )}
             </div>
             <div className={styles.containerInput}>
               <label htmlFor=""> Mot De Passe</label>
-              <input type="password"    {...register("password", {
+              <input
+                type="password"
+                {...register("password", {
                   required: " veuillez entrer votre mot de passe ",
                   minLength: {
                     value: 6,
                     message:
                       "veuillez entrez un mot de passe de plus de 5 caractere",
                   },
-                })} />
-               
-                 {errors.password && (
+                })}
+              />
+
+              {errors.password && (
                 <div className="text-red-500">{errors.password.message}</div>
               )}
             </div>
             <div className={styles.containerInput}>
               <label htmlFor=""> Confirmer votre mot de passe</label>
-              <input type="password"  {...register("passwordConfirm", {
+              <input
+                type="password"
+                {...register("passwordConfirm", {
                   required: "veuillez confirmer votre mot de passe",
                   minLength: {
                     value: 6,
                     message:
                       "votre confirmation de mot de passe doit macther avec votre mot passe",
                   },
-                })}   />
-                  {errors.passwordConfirm && (
-                <div className="text-red-500">{errors.passwordConfirm.message}</div>
+                })}
+              />
+              {errors.passwordConfirm && (
+                <div className="text-red-500">
+                  {errors.passwordConfirm.message}
+                </div>
               )}
             </div>
-            <button type="submit" className={styles.button}>S'inscrire</button>
+            <button type="submit" className={styles.button}>
+              S'inscrire
+            </button>
           </form>
         </div>
-       
-        
-          <div>
-            <span> vous avez deja un compte ?</span>
-            <Link href="/student/login">
+
+        <div>
+          <span> vous avez deja un compte ?</span>
+          <Link href="/student/login">
             <span className={styles.createAnAccount}> Se Connecter</span>
-            </Link>
-          </div>
-        
+          </Link>
+        </div>
       </div>
     </div>
   );

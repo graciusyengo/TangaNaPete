@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     try {
       //hash the password
       const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hashSync(req.body.password,salt);
+      const hashedPassword = bcrypt.hashSync(req.body.password,salt);
       //generate new paasword
       const newUser = new User({
         name: req.body.name,
