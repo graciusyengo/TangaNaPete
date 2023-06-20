@@ -3,6 +3,7 @@ import Image from "next/image";
 import { BiCaretRight } from "react-icons/bi";
 import { BiCaretLeft } from "react-icons/bi";
 import styles from "../styles/Main.module.css";
+import Link from "next/link";
 export default function Featured() {
 
   const [index, setIndex] = useState(0);
@@ -64,8 +65,9 @@ export default function Featured() {
                     type="text"
                     placeholder="Entrez le nom du cours"
                     className={styles.input}
-                  /> */}
+                  /> */}<Link href="/epreuvelists">
                     <button className={styles.searchButton}>Rechercher vos épreuves</button>
+                    </Link>
                   
                 </div>
               </div>

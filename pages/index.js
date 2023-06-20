@@ -24,7 +24,7 @@ export default function Home() {
    
 
       <Main />
-      <div className="text-3xl font-bold underline">hello</div>
+      
       <EpreuveList />
     </>
   );

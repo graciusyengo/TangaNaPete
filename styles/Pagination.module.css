@@ -11,10 +11,7 @@
   
   .pageLink {
     cursor: pointer;
-    
-   
   }
-  
   /* pagination pageItem */
   .pageItem {
     display: flex;

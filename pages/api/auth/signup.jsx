@@ -2,7 +2,6 @@ import db from "@/util/mongoDb";
 import User from "../../../models/User";
 import bcrypt from "bcrypt";
 export default async function handler(req, res) {
-    
   db.connect().catch((error) => {
     console.log(error);
   });

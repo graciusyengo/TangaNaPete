@@ -16,10 +16,15 @@ export default function Login() {
   console.log(status)
 
   useEffect(() => {
-    if (session?.user) {
-      router.push(redirect || "/");
+    if ((session?.user) && (session?.user.email=="yengo@gmail.com")) {
+      router.push(redirect || "/admin/dashboard");
+    } else if(session?.user) {
+   
+      router.push(redirect || "/student/dashboard");
+
     }
   }, [router, session, redirect]);
+  
   const {
     handleSubmit,
     register,

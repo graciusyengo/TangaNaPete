@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs"
     {
       name: "yengo",
       email: "yengo@gmail.com",
-      password: bcrypt.hashSync("123"),
+      password: bcrypt.hashSync("12345678"),
       isAdmin: true,
     },
     {
