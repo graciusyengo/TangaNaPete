@@ -20,13 +20,10 @@ export default function Login() {
     const res= await axios.post("/api/admin/login",admin)
     console.log(res)
     router.push("/admin/dashboard")
-    
    } catch (error) {
     console.log(error)
    }
-
   }
-
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
