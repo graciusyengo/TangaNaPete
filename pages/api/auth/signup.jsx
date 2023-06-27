@@ -21,6 +21,7 @@ export default async function handler(req, res) {
       });
       //save user
       const user = await newUser.save();
+      console.log(user)
       res.status(201).json(user);
     } catch (error) {
       res.status(500).json("erreur d'inscription");

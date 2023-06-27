@@ -1,30 +1,25 @@
-import mongoose from "mongoose"
-const UserSchema= new mongoose.Schema({
-    name:{
-        type:String,
-    
-        minLength:5,
-        maxLength:20
+import mongoose from "mongoose";
+const UserSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      minLength: 5,
+      maxLength: 20,
     },
-    email:{
-        type:String,
-      
+    email: {
+      type: String,
     },
-    password:{
-        type:String,
-      
+    password: {
+      type: String,
     },
-    passwordConfirm:{
-        type:String,
-       
+    passwordConfirm: {
+      type: String,
+    },
+    isAdmin: {
+      type: String,
+    },
+  },
+  { timestamps: true }
+);
 
-    },
-    isAdmin:{
-        type:Boolean,
-        
-    }
-},
-{timestamps:true}
-)
-
-export default  mongoose.models.User || mongoose.model("User",UserSchema)
+export default mongoose.models.User || mongoose.model("User", UserSchema);
