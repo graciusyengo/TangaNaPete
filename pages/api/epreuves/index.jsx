@@ -20,6 +20,7 @@ export default async function handler(req, res) {
     }
   }
   if (method === "POST") {
+    const {}
     try {
       const epreuve = await Epreuve.create(req.body);
       res.status(200).json(epreuve);

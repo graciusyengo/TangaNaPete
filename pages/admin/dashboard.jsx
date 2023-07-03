@@ -9,10 +9,8 @@ import Link from "next/link";
 import { RxSketchLogo, RxDashboard, RxPerson } from "react-icons/rx";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { AiTwotoneSetting } from "react-icons/ai";
-import { useRouter } from "next/router";
+
 export default function admin() {
-  const router = useRouter();
-  console.log(router);
 
   return (
     <div className="flex ">
