@@ -22,8 +22,21 @@ export default async function handler(req, res) {
   if (method === "POST") {
     
     try {
-      const epreuve = await Epreuve.create(req.body);
-      res.status(200).json(epreuve);
+      const {name, academicYear,session,promote,category,img}= req.body
+      if(!name||!academicYear||!session||!promote|| !category||!img){
+       return res.status(422).json({error: "veuiller remplir tous les champs"})
+      }
+      const newEpreuve= new Epreuve({
+       name:name,
+       academicYear:academicYear,
+       session:session,
+       category:category,
+       promote:promote,
+       img:img
+      
+      }) 
+     const epreuve= await newEpreuve.save()
+      res.status(201).json(epreuve);
     } catch (error) {
       res.status(500).json(error);
     }

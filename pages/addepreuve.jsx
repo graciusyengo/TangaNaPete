@@ -1,69 +1,125 @@
 import React from "react";
 import SideBar from "@/components/sideBar";
+import { useForm } from "react-hook-form";
 
 export default function addEpreuve() {
+
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+
+
+  const submitHandler=(({name,academicYear,session,promote})=>{
+    console.log(name,academicYear,session,promote)
+
+
+  })
   return (
     <div>
       <SideBar />
       <div className=" bg-purple-100 min-h-screen ml-20  ">
-        <form className="text-white dark:text-gray-200 min-h-screen   ">
+        <form className="flex flex-col justify-between" onSubmit={handleSubmit(submitHandler)}>
           <div className="grid grid-cols-1 gap-6  sm:grid-cols-2 ">
             <div className="m-2.5">
               <label
                 className="text-black dark:text-gray-200"
-                htmlFor="username"
+                htmlFor="name"
               >
                 Nom du cours
               </label>
               <input
-                id="username"
+                id="name"
                 type="text"
+                {...register("name", {
+                  required: "désolé veuillez entrer le nom de l'epreuve",
+                  maxLength: {
+                    value: 18,
+                    message: "Veuillez entrer un nom de moins de 19 caractères",
+                  },
+                })}
+              
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border
                 border-gray-300
                 rounded-md dark:bg-gray-800 dark:text-gray-300 focus:border-purple-500 dark:focus:border-blue-500 focus:outline-none focus:ring "
               />
+                {errors.name && (
+                  <div className="text-red-500">{errors.name.message}</div>
+                )}
             </div>
 
             <div className="m-2.5">
               <label
                 className="text-black dark:text-gray-200"
-                htmlFor="emailAddress"
+                htmlFor="academicYear"
               >
                 Années academique
               </label>
               <input
-                id="emailAddress"
-                type="email"
+                id="academicYear"
+                type="text"
+                {...register("academicYear", {
+                  required: "désolé veuillez entrer l'années academique",
+                  maxLength: {
+                    value: 15,
+                    message: "Veuillez entrer un nom de moins de 16 caractères",
+                  },
+                })}
+               
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
               />
+              {errors.academicYear && (
+                  <div className="text-red-500">{errors.academicYear.message}</div>
+                )}
             </div>
 
             <div className="m-2.5">
               <label
                 className="text-black dark:text-gray-200"
-                htmlFor="password"
+                htmlFor="session"
               >
                 Session
               </label>
               <input
-                id="password"
-                type="password"
+                id="session"
+                type="text"
+                {...register("session", {
+                  required: "désolé veuillez spécifier la session",
+                  maxLength: {
+                    value: 9,
+                    message: "Veuillez entrer un nom de moins de 10 caractères",
+                  },
+                })}
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-purple-300 dark:focus:border-purple-300 focus:outline-none focus:ring"
               />
+              {errors.session && (
+                  <div className="text-red-500">{errors.session.message}</div>
+                )}
             </div>
 
             <div className="m-2.5">
               <label
                 className="text-black dark:text-gray-200"
-                htmlFor="passwordConfirmation"
+                htmlFor="promote"
               >
               Promotion
               </label>
               <input
-                id="passwordConfirmation"
-                type="password"
+                id="promote"
+                type="text"
+                {...register("promote", {
+                  required: "désolé veuillez entrer la promotion",
+                  maxLength: {
+                    value: 15,
+                    message: "Veuillez entrer un nom de moins de 16 caractères",
+                  },
+                })}
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
               />
+               {errors.promote && (
+                  <div className="text-red-500">{errors.promote.message}</div>
+                )}
             </div>
 
             <div className="m-2.5">
@@ -71,7 +127,7 @@ export default function addEpreuve() {
                 className="text-black dark:text-gray-200"
                 htmlFor="passwordConfirmation"
               >
-                Select
+                Categorie
               </label>
               <select className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
                 <option>Surabaya</option>
@@ -97,7 +153,7 @@ export default function addEpreuve() {
                       d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
                       strokeWidth="2"
                       strokeLinecap="round"
-                      stokeLinejoin="round"
+                      stokelinejoin="round"
                     />
                   </svg>
                   <div className="flex text-sm text-gray-600 m-2.5">
@@ -119,7 +175,9 @@ export default function addEpreuve() {
                 </div>
               </div>
             </div>
+        
           </div>
+          <button className="font-semibold text-xl border-solid border-2 border-purple-300  p-3 rounded-lg hover:bg-purple-300 hover:text-white mt-20">Ajouter une epreuve</button>
         </form>
       </div>
     </div>
