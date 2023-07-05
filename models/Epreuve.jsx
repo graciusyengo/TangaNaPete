@@ -12,11 +12,7 @@ const EpreuveSchema= new mongoose.Schema({
         // required:true,
         
     },
-    category:{
-        type:String,
-        // required:true
 
-    },
     session:{
         type:String,
         // required:true

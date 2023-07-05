@@ -22,23 +22,23 @@ export default async function handler(req, res) {
   if (method === "POST") {
     
     try {
-      const {name, academicYear,session,promote,category,img}= req.body
-      if(!name||!academicYear||!session||!promote|| !category||!img){
+      const {name, academicYear,session,promote,img}= req.body
+      console.log(name,img,academicYear,promote,session)
+      if(!name||!academicYear||!session||!promote||!img){
        return res.status(422).json({error: "veuiller remplir tous les champs"})
       }
       const newEpreuve= new Epreuve({
        name:name,
        academicYear:academicYear,
        session:session,
-       category:category,
        promote:promote,
        img:img
       
       }) 
      const epreuve= await newEpreuve.save()
-      res.status(201).json(epreuve);
+      res.status(201).json({success:"enregistrement reussi"});
     } catch (error) {
-      res.status(500).json(error);
+      res.status(500).json({error:"internal server error"});
     }
   }
 }

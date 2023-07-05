@@ -13,6 +13,7 @@
     "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
+    "materialize-css": "^1.0.0-rc.2",
     "mongoose": "^7.1.0",
     "next": "13.3.0",
     "next-auth": "^4.22.1",

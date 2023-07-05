@@ -1,32 +1,81 @@
 import React from "react";
 import SideBar from "@/components/sideBar";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import baseUrl from "@/util/baseUrl"
+
+
 
 export default function addEpreuve() {
-
+  const [media, setMedia] = useState("");
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm();
 
+  const submitHandler = async ({ name, academicYear, session, promote,img }) => {
+    try {
+      const img = await imageUpload();
+    
+     const res=await fetch(`${baseUrl}/api/epreuves`,{
+        method:"POST",
+        headers:{
+          'Content-Type':'application/json'
 
-  const submitHandler=(({name,academicYear,session,promote})=>{
-    console.log(name,academicYear,session,promote)
+        },
+        body:JSON.stringify({
+          name,
+          academicYear,
+          session,
+          promote,
+          img:img
+        })
+      })
+       const res2 = await res.json()
+       console.log(res2.error)
+      if(res2?.error){
+        toast.error(res2.error)
+      }else{
+      toast.success(res2.success)
+      }
+    } catch (err) {
 
+    }
+  };
+  const imageUpload = async () => {
+    const data = new FormData();
+    console.log(data);
+    data.append("file", media);
+    data.append("upload_preset", "mystore");
+    data.append("cloud_name", "dalaydhsp");
 
-  })
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/dalaydhsp/image/upload",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+
+    const res2 = await res.json();
+    
+    return res2.url;
+    
+  };
   return (
     <div>
       <SideBar />
       <div className=" bg-purple-100 min-h-screen ml-20  ">
-        <form className="flex flex-col justify-between" onSubmit={handleSubmit(submitHandler)}>
+        <form
+          className="flex flex-col justify-between"
+          onSubmit={handleSubmit(submitHandler)}
+        >
           <div className="grid grid-cols-1 gap-6  sm:grid-cols-2 ">
             <div className="m-2.5">
-              <label
-                className="text-black dark:text-gray-200"
-                htmlFor="name"
-              >
+              <label className="text-black dark:text-gray-200" htmlFor="name">
                 Nom du cours
               </label>
               <input
@@ -39,14 +88,13 @@ export default function addEpreuve() {
                     message: "Veuillez entrer un nom de moins de 19 caractères",
                   },
                 })}
-              
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border
                 border-gray-300
                 rounded-md dark:bg-gray-800 dark:text-gray-300 focus:border-purple-500 dark:focus:border-blue-500 focus:outline-none focus:ring "
               />
-                {errors.name && (
-                  <div className="text-red-500">{errors.name.message}</div>
-                )}
+              {errors.name && (
+                <div className="text-red-500">{errors.name.message}</div>
+              )}
             </div>
 
             <div className="m-2.5">
@@ -66,12 +114,13 @@ export default function addEpreuve() {
                     message: "Veuillez entrer un nom de moins de 16 caractères",
                   },
                 })}
-               
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
               />
               {errors.academicYear && (
-                  <div className="text-red-500">{errors.academicYear.message}</div>
-                )}
+                <div className="text-red-500">
+                  {errors.academicYear.message}
+                </div>
+              )}
             </div>
 
             <div className="m-2.5">
@@ -94,8 +143,8 @@ export default function addEpreuve() {
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-purple-300 dark:focus:border-purple-300 focus:outline-none focus:ring"
               />
               {errors.session && (
-                  <div className="text-red-500">{errors.session.message}</div>
-                )}
+                <div className="text-red-500">{errors.session.message}</div>
+              )}
             </div>
 
             <div className="m-2.5">
@@ -103,7 +152,7 @@ export default function addEpreuve() {
                 className="text-black dark:text-gray-200"
                 htmlFor="promote"
               >
-              Promotion
+                Promotion
               </label>
               <input
                 id="promote"
@@ -117,9 +166,9 @@ export default function addEpreuve() {
                 })}
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
               />
-               {errors.promote && (
-                  <div className="text-red-500">{errors.promote.message}</div>
-                )}
+              {errors.promote && (
+                <div className="text-red-500">{errors.promote.message}</div>
+              )}
             </div>
 
             <div className="m-2.5">
@@ -166,6 +215,8 @@ export default function addEpreuve() {
                         id="file-upload"
                         name="file-upload"
                         type="file"
+                        accept="image/*"
+                        onChange={(e) => setMedia(e.target.files[0])}
                         className="sr-only"
                       />
                     </label>
@@ -174,12 +225,18 @@ export default function addEpreuve() {
                   <p className="text-xs text-white">PNG, JPG, GIF up to 10MB</p>
                 </div>
               </div>
+              <img
+                className="responsive-img"
+                src={media ? URL.createObjectURL(media) : ""}
+              />
             </div>
-        
           </div>
-          <button className="font-semibold text-xl border-solid border-2 border-purple-300  p-3 rounded-lg hover:bg-purple-300 hover:text-white mt-20">Ajouter une epreuve</button>
+          <button className="font-semibold text-xl border-solid border-2 border-purple-300  p-3 rounded-lg hover:bg-purple-300 hover:text-white mt-16 mb-16">
+            Ajouter une epreuve
+          </button>
         </form>
       </div>
+      <ToastContainer position="bottom-center" limit={1} />
     </div>
   );
 }

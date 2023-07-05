@@ -11,7 +11,7 @@ export default function EpreuveList() {
   const pageSize = 5;
   console.log(query);
 
-  const keys=["name","academicYear","category","session","promote",]
+  const keys=["name","academicYear","session","promote",]
 
   useEffect(()=>{
     axios.get(`/api/epreuves?q=${query}`)
