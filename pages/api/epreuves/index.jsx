@@ -33,7 +33,6 @@ export default async function handler(req, res) {
        session:session,
        promote:promote,
        img:img
-      
       }) 
      const epreuve= await newEpreuve.save()
       res.status(201).json({success:"enregistrement reussi"});
