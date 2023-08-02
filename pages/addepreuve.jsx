@@ -5,6 +5,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import baseUrl from "@/util/baseUrl"
+import Image from "next/image";
 
 
 
@@ -226,6 +227,7 @@ export default function addEpreuve() {
                 </div>
               </div>
               <img
+          
                 className="responsive-img"
                 src={media ? URL.createObjectURL(media) : ""}
               />

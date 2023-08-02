@@ -19,7 +19,7 @@ export default function EpreuveCard({ dataEpreuves,currentPage,pageSize}) {
               alt="epreuve"
               priority="false"
               className={styles.img}
-              height={250}
+              height={300}
               width={200}
             />
             </Link>  
