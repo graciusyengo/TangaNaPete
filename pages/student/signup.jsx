@@ -1,4 +1,5 @@
 import styles from "../../styles/Signup.module.css";
+import NavBar from "@/components/NavBar";
 import Link from "next/link";
 import axios from "axios"
 import { useForm } from "react-hook-form";
@@ -32,6 +33,8 @@ export default function Signup() {
     }
   };
   return (
+    <>
+    <NavBar/>
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.containerLogo}>
@@ -123,5 +126,6 @@ export default function Signup() {
         </div>
       </div>
     </div>
+    </>
   );
 }

@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import baseUrl from "@/util/baseUrl"
 import Image from "next/image";
+import styles from "../styles/AddEpreuve.module.css"
 
 
 
@@ -233,7 +234,7 @@ export default function addEpreuve() {
               />
             </div>
           </div>
-          <button className="font-semibold text-xl border-solid border-2 border-purple-300  p-3 rounded-lg hover:bg-purple-300 hover:text-white mt-16 mb-16">
+          <button className={styles.addButton}>
             Ajouter une epreuve
           </button>
         </form>

@@ -12,7 +12,7 @@ export default function Layout ({children}){
 
 
         <div className={styles.container}>
-            <NavBar/>
+          {/* <NavBar/>*/} 
            
             {children}
             {/* <Footer/> */}

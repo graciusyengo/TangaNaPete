@@ -1,0 +1,23 @@
+.addButton{
+    background-color: var(--skin-color);
+    border: none;
+    color: var(--text-black);
+    font-weight: 600;
+    font-size: 17px;
+    width: 90%;
+    
+    margin-top: 35px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 15px;
+  margin-left: 60px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+
+}
+.addButton:hover{
+    background-color: var(--skin-color);
+    transform: scale(1.05);
+
+}

@@ -34,7 +34,8 @@ export default async function handler(req, res) {
       res.status(403).json("impossible de modifier tu ne pas admin");
     }
     
-  }  if (method === "DELETE") {
+  }  
+  if (method ==="DELETE") {
     try {
       const epreuve = await Epreuve.findByIdAndDelete(id);
  !epreuve && res.status(403).json("l'preuve n'existe pas")

@@ -15,32 +15,32 @@ console.log(router);
     <Link href="/admin/dashboard">
 
       
-      <div   className={router.pathname == "/admin/dashboard" ? "bg-purple-300 p-3 rounded-lg text-white" : "border-solid border-2 border-purple-300  p-3 rounded-lg hover:bg-purple-300 hover:text-white"} >
+      <div   className={router.pathname == "/admin/dashboard" ? "bg-red-500 p-3 rounded-lg text-white" : "border-solid border-2 border-red-300  p-3 rounded-lg hover:bg-red-500 hover:text-white"} >
         <RxSketchLogo size={25}  />
       </div>
     </Link>
     <span className="border-b-[1px] border-gray-200 w-full "></span>
     <Link href="/addepreuve">
-      <div className={router.pathname == "/addepreuve" ? "bg-purple-300 p-3 rounded-lg text-white" : "border-solid border-2 border-purple-300  p-3 rounded-lg hover:bg-purple-300 hover:text-white"} >
+      <div className={router.pathname == "/addepreuve" ? "bg-red-500 p-3 rounded-lg text-white" : "border-solid border-2 border-red-300  p-3 rounded-lg hover:bg-red-500 hover:text-white"} >
         <RxDashboard size={25} />
       </div>
     </Link>
     <span className="border-b-[1px] border-gray-200 w-full "></span>
     <Link href="/customers">
-      <div className={router.pathname == "/customers" ? "bg-purple-300 p-3 rounded-lg text-white" : "border-solid border-2 border-purple-300  p-3 rounded-lg hover:bg-purple-300 hover:text-white"} >
+      <div className={router.pathname == "/customers" ? "bg-red-500 p-3 rounded-lg text-white" : "border-solid border-2 border-red-300  p-3 rounded-lg hover:bg-red-500 hover:text-white"} >
         <RxPerson size={25} />
       </div>
     </Link>
     <span className="border-b-[1px] border-gray-200 w-full p-2 "></span>
     <Link href="#">
-      <div className="border-solid border-2 border-purple-300  bg-[#fff] hover:bg-purple-300 hover:text-white   p-3 rounded-lg mb-7">
+      <div className="border-solid border-2 border-red-300  bg-[#fff] hover:bg-red-500 hover:text-white   p-3 rounded-lg mb-7">
         {" "}
         <HiOutlineShoppingBag size={25} />
       </div>
     </Link>
     <span className="border-b-[1px] border-gray-200 w-full p-2 "></span>
     <Link href="#">
-      <div className="border-solid border-2 border-purple-300    bg-[#fff] hover:bg-purple-300 hover:text-white p-3 rounded-lg mb-16">
+      <div className="border-solid border-2 border-red-300    bg-[#fff] hover:bg-red-500 hover:text-white p-3 rounded-lg mb-16">
         {" "}
         <AiTwotoneSetting size={25} />
       </div>

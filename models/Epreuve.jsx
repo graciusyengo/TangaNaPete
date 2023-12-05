@@ -10,9 +10,7 @@ const EpreuveSchema= new mongoose.Schema({
     academicYear:{
         type:String,
         // required:true,
-        
     },
-
     session:{
         type:String,
         // required:true

@@ -1,4 +1,5 @@
 import styles from "../../styles/Login.module.css";
+import NavBar from "@/components/NavBar";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { signIn, useSession } from "next-auth/react";
@@ -16,7 +17,7 @@ export default function Login() {
   console.log(status)
 
   useEffect(() => {
-    if ((session?.user) && (session?.user.email=="yengo@gmail.com")) {
+    if ((session?.user) && (session?.user.email==="yengo@gmail.com")) {
       router.push(redirect || "/admin/dashboard");
     } else if(session?.user) {
    
@@ -56,6 +57,8 @@ export default function Login() {
     // }
   };
   return (
+<>
+    <NavBar/>
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.containerLogo}>
@@ -113,5 +116,6 @@ export default function Login() {
         <ToastContainer position="bottom-center" limit={1} />
       </div>
     </div>
+    </>
   );
 }
