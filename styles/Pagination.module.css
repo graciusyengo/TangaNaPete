@@ -1,5 +1,9 @@
 .container {
-   margin-top:20px;
+   margin-top:80px;
+   margin-bottom: 60px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
   }
   
   .pagination {
@@ -22,6 +26,23 @@
     border: 1px solid #eaeaea;
     border-radius: 0.5rem;
     cursor: pointer;
+    padding: 40px;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+ 
+  }
+  .pageItem:hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid red;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    padding: 40px;
+    margin-right: 18px;
+    transform: scale(1.05);
  
   }
   
@@ -37,4 +58,6 @@
     border-radius: 0.5rem;
     cursor: pointer;
     background-color:red;
+    padding: 40px;
+   
   }

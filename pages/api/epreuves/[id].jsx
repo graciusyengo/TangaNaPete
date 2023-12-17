@@ -12,6 +12,7 @@ export default async function handler(req, res) {
   if (method === "GET") {
     try {
       const epreuve = await Epreuve.findById(id);
+      console.log(id)
       res.status(200).json(epreuve);
     } catch (error) {
       res.status(500).json(error);

@@ -5,7 +5,7 @@ export default function TopBar() {
       <div className=" lg:col-span-2 col-span-1 flex justify-between border w-full p-4 bg-white rounded-lg">
         <div className="flex flex-col w-full pb-4">
           <p className=" text-2xl font-bold">120</p>
-          <p className="text-gray-600">Nombre D'étudiants</p>
+          <p className="text-gray-600">Total épreuves</p>
         </div>
         <p className="bg-green-200 flex justify-center items-center cursor-pointer p-2 rounded-lg">
             <span className="text-green-700 ">
@@ -16,7 +16,7 @@ export default function TopBar() {
       <div className=" lg:col-span-2 col-span-1 flex justify-between border w-full p-4 bg-white rounded-lg">
         <div className="flex flex-col w-full pb-4">
           <p className=" text-2xl font-bold">12</p>
-          <p className="text-gray-600">Nombres de téléchargement</p>
+          <p className="text-gray-600">Nombres des épreuves télécharger</p>
         </div>
         <p className="bg-yellow-200 flex justify-center items-center cursor-pointer p-2 rounded-lg">
             <span className="text-green-700 ">

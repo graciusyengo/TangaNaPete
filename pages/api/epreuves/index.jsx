@@ -35,7 +35,7 @@ export default async function handler(req, res) {
        img:img
       }) 
      const epreuve= await newEpreuve.save()
-      res.status(201).json({success:"enregistrement reussi"});
+      res.status(201).json({success:"enregistrement reussi",epreuve});
     } catch (error) {
       res.status(500).json({error:"internal server error"});
     }

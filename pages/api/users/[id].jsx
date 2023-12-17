@@ -18,7 +18,7 @@ export default async function handler(req, res) {
       res.status(500).json(error);
     }
   }
-  if (method === "PUT") {
+  if (method === "PUT") {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
     if (req.body.userId === req.query.id || req.body.isAdmin) {
       console.log(req.query.id);
       if (req.body.password) {

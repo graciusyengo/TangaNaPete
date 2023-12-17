@@ -13,7 +13,7 @@ export default function Login() {
   const { redirect } = router.query;
 
   const {status, data: session } = useSession();
-  console.log(session);
+  console.log(session?.user.email);
   console.log(status)
 
   useEffect(() => {

@@ -11,7 +11,7 @@ export default function SideBar() {
   const router = useRouter();
 console.log(router);
   return (
-    <div className="fixed h-screen w-20  bg-white border-r-[1px] flex flex-col justify-between items-center ">
+    <div className="fixed h-screen w-20 pt-24  bg-white border-r-[1px] flex flex-col justify-between items-center ">
     <Link href="/admin/dashboard">
 
       

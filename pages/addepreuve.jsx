@@ -7,6 +7,8 @@ import { ToastContainer } from "react-toastify";
 import baseUrl from "@/util/baseUrl"
 import Image from "next/image";
 import styles from "../styles/AddEpreuve.module.css"
+import { SiWechat } from "react-icons/si";
+import Link from "next/link";
 
 
 
@@ -70,19 +72,20 @@ export default function addEpreuve() {
   return (
     <div>
       <SideBar />
-      <div className=" bg-purple-100 min-h-screen ml-20  ">
+      <div className=" bg-purple-100 min-h-screen ml-20 " >
         <form
-          className="flex flex-col justify-between"
+          className="flex flex-col justify-between p-20"
           onSubmit={handleSubmit(submitHandler)}
         >
           <div className="grid grid-cols-1 gap-6  sm:grid-cols-2 ">
-            <div className="m-2.5">
+            <div className="m-2.5 ">
               <label className="text-black dark:text-gray-200" htmlFor="name">
                 Nom du cours
               </label>
               <input
                 id="name"
                 type="text"
+               
                 {...register("name", {
                   required: "désolé veuillez entrer le nom de l'epreuve",
                   maxLength: {
@@ -238,8 +241,17 @@ export default function addEpreuve() {
             Ajouter une epreuve
           </button>
         </form>
+
+        <Link href="/student/messenger">
+        <div className="flex justify-end mr-20 mt-16 cursor-pointer" >
+        <SiWechat size={80} />
+      </div>
+      </Link>
+       
       </div>
       <ToastContainer position="bottom-center" limit={1} />
+     
+
     </div>
   );
 }
