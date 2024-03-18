@@ -68,7 +68,6 @@ export const getServerSideProps = async ({ params }) => {
   const res = await axios.get(
     `http://localhost:3000/api/epreuves/${params.id}`
   );
-
   return {
     props: {
       epreuve: res.data,
